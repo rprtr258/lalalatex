@@ -18,4 +18,4 @@ jobs:
           args: '-pdf'
           extra_system_packages: 'texmf-dist-pstricks libwmf'
           post_compile: 'apk add convert && convert -density 300 output.pdf myImage.png'
-          latexmk_use_xelatex: true
+#           latexmk_use_xelatex: true
