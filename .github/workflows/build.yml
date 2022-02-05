@@ -14,9 +14,6 @@ jobs:
           working_directory: '.'
           compiler: latexmk
           args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
-          # [Deprecated] Install extra packages by tlmgr
-          extra_packages: pstricks-base
-          # Install extra packages by apk
-          extra_system_packages: pstricks-base
+          extra_system_packages: texmf-dist-pstricks
           post_compile: 'convert -density 300 output.pdf myImage.png'
           latexmk_use_xelatex: true
