@@ -7,11 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Github Action for LaTeX
-        # You may pin to the exact commit or the version.
-        # uses: xu-cheng/latex-action@97bae119d017e25bfb37ce8e5d95b1d64135f00b
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@97bae119d017e25bfb37ce8e5d95b1d64135f00b
         with:
-          glob_root_file: '*.tex'
+          root_file: '*.tex'
+          glob_root_file: true
           working_directory: '.'
           compiler: latexmk
           args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
