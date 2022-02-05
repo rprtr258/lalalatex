@@ -1,0 +1,23 @@
+name: Build
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Github Action for LaTeX
+        # You may pin to the exact commit or the version.
+        # uses: xu-cheng/latex-action@97bae119d017e25bfb37ce8e5d95b1d64135f00b
+        uses: xu-cheng/latex-action@v2
+        with:
+          glob_root_file: '*.tex'
+          working_directory: '.'
+          compiler: latexmk
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+          # [Deprecated] Install extra packages by tlmgr
+          extra_packages: psmatrix
+          # Install extra packages by apk
+          extra_system_packages: psmatrix
+          post_compile: 'convert -density 300 output.pdf myImage.png'
+          latexmk_use_xelatex: true
