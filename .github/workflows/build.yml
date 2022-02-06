@@ -20,3 +20,8 @@ jobs:
           ps2pdf main.ps
           awk '!/PDF/' /etc/ImageMagick-6/policy.xml > temp && sudo mv temp /etc/ImageMagick-6/policy.xml
           convert -density 300 main.pdf myImage.png
+      
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.3.1
+        with:
+          path: '*.png'
